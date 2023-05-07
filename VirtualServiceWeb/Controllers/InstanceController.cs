@@ -28,9 +28,10 @@ public class InstanceController : ControllerBase
     [HttpGet]
     public IActionResult Genarate()
     {
-        Task generationTask = new Task(() => _coreService.StartScript());
-        generationTask.Start();
+        /*Task generationTask = new Task(() => _coreService.StartScript());
+        generationTask.Start();*/
+        var output = _coreService.StartScript();
         
-        return Ok();
+        return Ok(output);
     }
 }

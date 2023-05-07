@@ -2,7 +2,6 @@ namespace VirtualServiceWeb.Data.Models;
 
 public class InstanceModel : BaseModel
 {
-
     public string InstanceName { get; set; } 
 
     public DateTime Date { get; set; }
