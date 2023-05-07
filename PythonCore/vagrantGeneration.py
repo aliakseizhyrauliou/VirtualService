@@ -27,6 +27,9 @@ def generate_vagrantfile(os_name, cpu_cores, memory):
 
     template = """
     Vagrant.configure("2") do |config|
+        config.ssh.username = "vagrant"
+        config.ssh.password = "vagrant"
+        config.ssh.insert_key = false
         config.vm.box = "{{ os }}"
         config.vm.provider "virtualbox" do |vb|
             vb.memory = {{ memory }}
@@ -62,7 +65,7 @@ def main():
     subprocess.run(["vagrant", "up"])
 
     # Выполняем команду внутри виртуальной машины
-    subprocess.run(["vagrant", "ssh", "-c", "'echo \"Hello World\"'"])
+    subprocess.run(["vagrant", "ssh-config"])
 
 
 
